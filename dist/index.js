@@ -13,6 +13,8 @@ __nccwpck_require__.r(__webpack_exports__);
 var core = __nccwpck_require__(186);
 // EXTERNAL MODULE: ./node_modules/@actions/github/lib/github.js
 var github = __nccwpck_require__(438);
+// EXTERNAL MODULE: external "fs"
+var external_fs_ = __nccwpck_require__(747);
 // CONCATENATED MODULE: ./identifier.js
 function getCommentPrefix(identifier) {
   return `<!-- ${identifier}: do not delete/edit this line -->`;
@@ -239,6 +241,7 @@ async function deleteMode(commenter, identifier) {
 
 
 
+
 (async () => {
   try {
     const repository = core.getInput('repository');
@@ -263,12 +266,12 @@ async function deleteMode(commenter, identifier) {
     if (messagePath && message) {
       core.setFailed("Only one of 'message' or 'message-path' can be set.");
       return;
-    } else if (messagePath && !existsSync(messagePath)) {
+    } else if (messagePath && !(0,external_fs_.existsSync)(messagePath)) {
       core.setFailed(`Input message-path: '${messagePath}' does not exist.`);
       return;
     } else if (messagePath) {
       console.log(`Read from message-path: ${messagePath} `);
-      message = readFileSync(messagePath, 'utf-8');
+      message = (0,external_fs_.readFileSync)(messagePath, 'utf-8');
     }
 
     let commenter;

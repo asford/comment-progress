@@ -1,5 +1,6 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
+import { existsSync, readFileSync } from 'fs';
 import { getCommenter } from './comment/commenter';
 import { appendMode, deleteMode, normalMode, recreateMode } from './modes';
 
