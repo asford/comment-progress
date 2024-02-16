@@ -57,6 +57,7 @@ jobs:
 
       - name: message path - missing input
         uses: ./
+        continue-on-error: true
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
@@ -66,6 +67,7 @@ jobs:
 
       - name: message path - both inputs provided, should fail
         uses: ./
+        continue-on-error: true
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
