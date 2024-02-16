@@ -46,6 +46,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Create MESSAGE.md
+        run: echo "body from message-path" > MESSAGE.md
       - name: message path - create comment
         uses: ./
         with:
@@ -53,7 +55,7 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: message-path-comment
-          message-path: ./README.md
+          message-path: ./MESSAGE.md
 
       - name: message path - missing input
         uses: ./
