@@ -52,7 +52,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ inputs.repository }}
           number: ${{ github.event.inputs.number }}
-          id: normal-mode-comment
+          id: message-body-comment
           message-body: ./README.md
 
   issue-append-mode:
