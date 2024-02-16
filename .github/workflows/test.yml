@@ -64,6 +64,16 @@ jobs:
           id: message-path-comment
           message-path: ./MISSING_INPUT.md
 
+      - name: message path - both inputs provided, should fail
+        uses: ./
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.inputs.number }}
+          id: message-path-comment
+          message-path: ./MISSING_INPUT.md
+          message: BOTH
+
   issue-append-mode:
     runs-on: ubuntu-20.04
     name: Append mode progress for issue comments
