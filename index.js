@@ -24,7 +24,6 @@ import { appendMode, deleteMode, normalMode, recreateMode } from './modes';
 
     const octokit = github.getOctokit(githubToken);
 
-    console.log(messagePath, message);
     if (messagePath && message) {
       core.setFailed("Only one of 'message' or 'message-path' can be set.");
       return;
@@ -32,10 +31,9 @@ import { appendMode, deleteMode, normalMode, recreateMode } from './modes';
       core.setFailed(`Input message-path: '${messagePath}' does not exist.`);
       return;
     } else if (messagePath) {
-      console.log(`Resolved message-path: ${messagePath} `);
+      console.log(`Read from message-path: ${messagePath} `);
       message = readFileSync(messagePath, 'utf-8');
     }
-    console.log(messagePath, message);
 
     let commenter;
     try {
