@@ -55,6 +55,15 @@ jobs:
           id: message-body-comment
           message-body: ./README.md
 
+      - name: message body - missing input
+        uses: ./
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.inputs.number }}
+          id: message-body-comment
+          message-body: ./MISSING_INPUT.md
+
   issue-append-mode:
     runs-on: ubuntu-20.04
     name: Append mode progress for issue comments
