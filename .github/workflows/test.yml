@@ -39,30 +39,30 @@ jobs:
           id: normal-mode-comment
           message: 'normal mode - update comment'
 
-  message-body:
+  message-path:
     runs-on: ubuntu-20.04
-    name: Use message-body to load message from file
+    name: Use message-path to load message from file
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: message body - create comment
+      - name: message path - create comment
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
-          id: message-body-comment
-          message-body: ./README.md
+          id: message-path-comment
+          message-path: ./README.md
 
-      - name: message body - missing input
+      - name: message path - missing input
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
-          id: message-body-comment
-          message-body: ./MISSING_INPUT.md
+          id: message-path-comment
+          message-path: ./MISSING_INPUT.md
 
   issue-append-mode:
     runs-on: ubuntu-20.04

@@ -22,7 +22,7 @@ inputs:
   message:
     description: "Message to be commented"
     required: false
-  message-body:
+  message-path:
     description: "Read message from path"
     required: false
   fail:
