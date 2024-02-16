@@ -19,9 +19,20 @@ import { getCommenter } from './comment/commenter';
     const deleteComment = core.getInput('delete');
     const fail = core.getInput('fail');
     const githubToken = core.getInput('github-token');
-    const message = core.getInput('message');
+    let message = core.getInput('message');
+    const messagePath = core.getInput('message-path');
 
     const octokit = github.getOctokit(githubToken);
+
+    if (messagePath && message) {
+      core.setFailed("Only one of 'message' or 'message-path' can be set.");
+      return;
+    } else if (messagePath && !existsSync(messagePath)) {
+      core.setFailed(`Input message-path: '${messagePath}' does not exist.`);
+      return;
+    } else if (messagePath) {
+      message = readFileSync(messagePath, 'utf-8');
+    }
 
     let commenter;
     try {
