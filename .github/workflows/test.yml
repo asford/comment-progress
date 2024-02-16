@@ -22,7 +22,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: normal-mode-comment
           message: 'normal mode - create comment'
@@ -34,7 +34,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: normal-mode-comment
           message: 'normal mode - update comment'
@@ -50,7 +50,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: message-body-comment
           message-body: ./README.md
@@ -66,7 +66,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: append-mode-comment
           message: "append mode - create comment"
@@ -78,7 +78,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: append-mode-comment
           append: true
@@ -95,7 +95,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: recreate-mode-comment
           message: 'recreate mode - create comment'
@@ -107,7 +107,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: recreate-mode-comment
           recreate: true
@@ -124,7 +124,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           commit-sha: ${{ github.event.inputs.sha }}
           id: normal-mode-comment
           message: "normal mode - create comment"
@@ -136,7 +136,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           commit-sha: ${{ github.event.inputs.sha }}
           id: normal-mode-comment
           message: 'normal mode - update comment'
@@ -152,7 +152,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           commit-sha: ${{ github.event.inputs.sha }}
           id: append-mode-comment
           message: 'append mode - create comment'
@@ -164,7 +164,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           commit-sha: ${{ github.event.inputs.sha }}
           id: append-mode-comment
           append: true
@@ -181,7 +181,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           commit-sha: ${{ github.event.inputs.sha }}
           id: recreate-mode-comment
           message: 'recreate mode - create comment'
@@ -193,7 +193,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           commit-sha: ${{ github.event.inputs.sha }}
           id: recreate-mode-comment
           recreate: true
@@ -211,7 +211,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: fail-mode-comment
           recreate: true
@@ -230,7 +230,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           commit-sha: ${{ github.event.inputs.sha }}
           id: fail-mode-issue-commit-both
@@ -248,7 +248,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           id: fail-mode-issue-commit-none
           message: 'should error out as both number and sha fields are not given'
 
@@ -264,7 +264,7 @@ jobs:
         uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           number: ${{ github.event.inputs.number }}
           id: fail-comment
           fail: true
